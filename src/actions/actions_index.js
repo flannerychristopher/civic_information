@@ -1,19 +1,15 @@
 import axios from 'axios';
-export const VOTER_INFO = 'VOTER_INFO';
-export const ELECTION_IDS = 'ELECTIONS_IDS';
+import { GET_DIVS, GET_REPS, KEY } from '../constants/constants';
 
-const ELECTION_IDS_URL = 'https://www.googleapis.com/civicinfo/v2/elections?key=';
-const VOTER_INFO_URL = 'https://www.googleapis.com/civicinfo/v2/voterinfo?key=';
-const KEY = 'AIzaSyDOEO_LQZQoHpfPI_IbON70aesS-q-Wqzs';
+const BASE_URL = 'https://www.googleapis.com/civicinfo/v2/representatives/';
 
-export function getElectionIds(address) { // address is user input string
-  console.log('getting election ids...');
-  const request = axios.get(ELECTION_IDS_URL + KEY + '&address=' + address);
-  return { type: ELECTION_IDS, payload: request }
+export function getDivs(address) {
+  const request = axios.get(BASE_URL + '?key=' + KEY + '&address=' + address);
+  return { type: GET_DIVS, payload: request }
 }
 
-export function getVoterInfo() {
-  const request = axios.get(VOTER_INFO_URL + KEY + "&address=1263%20Pacific%20Ave.%20Kansas%20City%20KS&electionId=2000")
-
-  return { type: VOTER_INFO, payload: request }
+export function getReps(ocdId) {
+  console.log('division id', ocdId)
+  const request = axios.get(BASE_URL + '?key=' + KEY + '&ocdId=' + ocdId );
+  return { type: GET_REPS, payload: request }
 }

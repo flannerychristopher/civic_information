@@ -1,27 +1,45 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getVoterInfo, getElectionIds } from './actions/actions_index';
+import { getDivs } from './actions/actions_index';
 import './App.css';
 
-class App extends Component {
+import DivsList from './components/DivsList';
+// import RepresentativesList from './components/RepresentativesList';
 
-  onFormSubmit(event) {
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      queryTerm: '80108'
+    }
+  }
+
+  onQuerySubmit(event) {
     event.preventDefault();
-    this.props.getVoterInfo();
+    this.props.getDivs(this.state.queryTerm);
+    this.setState({ queryTerm: '' });
   }
 
   render() {
     return (
       <div className="App">
-        <button onClick={e => this.props.getElectionIds('123 Main st Portland')}>election ids</button>
-        <button onClick={e => this.onFormSubmit(e)}>voter info</button>
-      </div>
+
+        <input
+          value={this.state.queryTerm}
+          onChange={e => this.setState({ queryTerm: e.target.value })}
+          placeholder='enter address or zipcode ...'
+        />
+        <button onClick={e => this.onQuerySubmit(e)}>find my representatives</button>
+        
+        <DivsList />
+
+      </div >
     );
   }
 }
 
-function mapStateToProps({electionIds, voterInfo}) {
-  return ({ electionIds, voterInfo });
+function mapStateToProps({ divs, reps }) {
+  return ({ divs, reps });
 }
 
-export default connect(mapStateToProps, { getVoterInfo, getElectionIds })(App);
+export default connect(mapStateToProps, { getDivs })(App);
