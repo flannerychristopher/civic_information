@@ -1,7 +1,7 @@
 
 export const GET_DIVS = 'GET_DIVS';
 export const GET_REPS = 'GET_REPS';
-export const KEY = 'AIzaSyDOEO_LQZQoHpfPI_IbON70aesS-q-Wqzs';
+export const KEY = 'MFQizEHF1TSyA0Ld0C6Z1c3k8fnE76ncGieQ05UB';
 export const states = ["AK",
   "AL",
   "AR",
