@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import DivsReducer from './divs_reducer';
-import RepsReducer from './reps_reducer';
+import MembersReducer from './members_reducer';
+import MemberReducer from './member_reducer';
 
 const rootReducer = combineReducers({
-  divs: DivsReducer,
-  reps: RepsReducer
+  members: MembersReducer,
+  currentMember: MemberReducer
 });
 
 export default rootReducer;

@@ -10,48 +10,11 @@ body {
   padding: 10px;
 }
 
-.DivsList {
-  display: flex;
-  justify-content: space-around;
-  margin: 15px 0;
-}
-
-.DivsItem {
-  font-size: .8em;
-  text-align: center;
-  min-height: 120px;
-  width: 20%;
-  border: 1px solid red;
-  border-radius: 5px;
-  padding: 5px;
-  overflow: contain;
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
-  cursor: pointer;
-}
-.DivsItem:hover {
-  opacity: .5;
-  background-color: grey;
-}
-
-
-
-
-
-.RepInfo {
+.MemberInfo {
   border-bottom: 2px solid black;
   margin: 10px;
-  display: flex;
-  justify-content: space-between;
+  
+  /* display: flex;
+  justify-content: space-between; */
 }
 
-.RepInfo > div {
-  width: 50%;
-}
-
-.repPhoto {
-  width: 70px;
-  /* height: 100%; */
-  border-radius: 25%;
-}
