@@ -70,8 +70,5 @@ class App extends Component {
   }
 }
 
-// function mapStateToProps({ members, currentMember }) {
-//   return ({ members, currentMember });
-// }
 
 export default connect(null, { getMembers, clearMembers })(App);

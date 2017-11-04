@@ -7,6 +7,7 @@ const CurrentMember = ({ currentMember }) => {
 
   return (
     <div>
+      <div className='heading'>Extended Information</div>
       <div>Date of Birth: {currentMember.date_of_birth}</div>
       <div>Most Recent Vote: {currentMember.most_recent_vote}</div>
       <div>Office Address: {currentRole.office}</div>
@@ -15,7 +16,7 @@ const CurrentMember = ({ currentMember }) => {
       <ExternalLink url={currentMember.rss_url} id=' ' text='RSS feed' />
 
       <div>
-        <div>Current Subcommittees</div>
+        <div className='heading'>Current Subcommittees</div>
 
         {
           currentRole.subcommittees.map(committee => {
@@ -29,13 +30,13 @@ const CurrentMember = ({ currentMember }) => {
         }
       </div>
       <div>
-        <div>Congressional Career</div>
+        <div className='heading'>Congressional Career</div>
         {
           currentMember.roles.map(role => {
             return (
               <div key={role.congress}>
-                <div>{role.title}, {role.state} - {role.party}</div>
-                <div>{role.chamber} {role.congress}, {role.start_date} - {role.end_date}</div>
+                <div className='subheading'>{role.title}, {role.state} - {role.party}</div>
+                <div>{role.chamber} {role.congress}, {role.start_date} to {role.end_date}</div>
                 <div>Bills Sponsored: {role.bills_sponsored}</div>
                 <div>Bills Cosponsored: {role.bills_cosponsored}</div>
                 <div>% of Votes with Party: {role.votes_with_party_pct}</div>

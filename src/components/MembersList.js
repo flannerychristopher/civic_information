@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getMember } from '../actions/actions_index';
+import { getMember, getVotes } from '../actions/actions_index';
 import MemberInfo from './MemberInfo';
 
-const MembersList = ({ members, getMember, currentMember }) => {
+const MembersList = ({ members, getMember, getVotes, currentVotes, currentMember }) => {
   console.log('props mapped to MembersList: ', members);
   return (
     members.map((member, i) => {
@@ -12,6 +12,8 @@ const MembersList = ({ members, getMember, currentMember }) => {
           member={member}
           getMember={getMember}
           currentMember={currentMember}
+          getVotes={getVotes}
+          currentVotes={currentVotes}
           key={i}
         />
 
@@ -21,8 +23,8 @@ const MembersList = ({ members, getMember, currentMember }) => {
   )
 }
 
-function mapStateToProps({ members, currentMember }) {
-  return ({ members, currentMember });
+function mapStateToProps({ members, currentMember, currentVotes }) {
+  return ({ members, currentMember, currentVotes });
 }
 
-export default connect(mapStateToProps, { getMember })(MembersList);
+export default connect(mapStateToProps, { getMember, getVotes })(MembersList);
