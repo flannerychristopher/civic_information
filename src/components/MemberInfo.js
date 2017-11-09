@@ -7,7 +7,7 @@ import ExternalLink from './ExternalLink';
 const MemberInfo = ({ member, getMember, getVotes, currentVotes, currentMember }) => {
   return (
     <div className='MemberInfo'>
-      <div className='memberName'>{member.name}, {member.party}</div>
+      <div className='memberName heading'>{member.name}, {member.party}</div>
       <div>{member.role}{member.district ? ', District ' + member.district : ''}</div>
       <div>next election: {member.next_election}</div>
       <ExternalLink
@@ -26,11 +26,11 @@ const MemberInfo = ({ member, getMember, getVotes, currentVotes, currentMember }
         text='Facebook Account'
       />
       <div className='seeMoreBtns'>
-        {
+        {/* {
           member.id === currentVotes.member_id
             ? <CurrentVotes currentVotes={currentVotes} />
             : <button onClick={e => getVotes(member.id)}>See Voting History</button>
-        }
+        } */}
         {
           member.id === currentMember.member_id
             ? <CurrentMember currentMember={currentMember} />

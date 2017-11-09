@@ -31,35 +31,39 @@ class App extends Component {
     return (
       <div className="App">
 
-        <select
-          value={this.state.value}
-          onChange={e => this.setState({ STATE: e.target.value })}
-        >
-          {STATES.map(s => <option value={s} key={s}>{s}</option>)}
-        </select>
-
-        <label>
-          <input
-            name="senate"
-            type="checkbox"
-            checked={this.state.senate}
-            onChange={e => this.setState({ senate: !this.state.senate })}
-          />
-          Senate
+        <div className="query">
+          <select
+            value={this.state.value}
+            onChange={e => this.setState({ STATE: e.target.value })}
+          >
+            {STATES.map(s => <option value={s} key={s}>{s}</option>)}
+          </select>
+          <div>
+            <span>search in:</span>
+            <label>
+              <input
+                name="senate"
+                type="checkbox"
+                checked={this.state.senate}
+                onChange={e => this.setState({ senate: !this.state.senate })}
+              />
+              Senate
           </label>
-        <label>
-          <input
-            name="house"
-            type="checkbox"
-            checked={this.state.house}
-            onChange={e => this.setState({ house: !this.state.house })}
-          />
-          House of Representatives
-          </label>
+            <label>
+              <input
+                name="house"
+                type="checkbox"
+                checked={this.state.house}
+                onChange={e => this.setState({ house: !this.state.house })}
+              />
+              House of Representatives
+        </label>
+          </div>
+        </div>
 
         {
           this.state.senate || this.state.house
-            ? <button onClick={e => this.onQuerySubmit(e)}>find my representatives</button>
+            ? <button className='submitButton' onClick={e => this.onQuerySubmit(e)}>find my representatives</button>
             : ''
         }
 
